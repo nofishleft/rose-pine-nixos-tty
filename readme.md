@@ -81,8 +81,8 @@ config.rose-pine-nixos-tty.variant = "rose-pine";
 ## Gallery
 
 ![NixOS TTY with Rosé Pine](https://raw.githubusercontent.com/nofishleft/rose-pine-nixos-tty/refs/heads/gallery/rose-pine.png)
-![NixOS TTY with Rosé Pine Dawn](https://raw.githubusercontent.com/nofishleft/rose-pine-nixos-tty/refs/heads/gallery/rose-pine-dawn.png)
 ![NixOS TTY with Rosé Pine Moon](https://raw.githubusercontent.com/nofishleft/rose-pine-nixos-tty/refs/heads/gallery/rose-pine-moon.png)
+![NixOS TTY with Rosé Pine Dawn](https://raw.githubusercontent.com/nofishleft/rose-pine-nixos-tty/refs/heads/gallery/rose-pine-dawn.png)
 
 ## Credits
 
