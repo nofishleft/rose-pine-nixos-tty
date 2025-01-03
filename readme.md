@@ -38,7 +38,7 @@ config.rose-pine-nixos-tty.variant = "rose-pine";
 {
     inputs = {
         nixpkgs.url = "...";
-        
+
         rose-pine-nixos-tty = {
             url = "github:nofishleft/rose-pine-nixos-tty";
             inputs.nixpkgs.follows = "nixpkgs";
@@ -82,9 +82,9 @@ config.rose-pine-nixos-tty.variant = "rose-pine";
 
 ![Rosé Pine with App](https://user-images.githubusercontent.com/1474821/166155319-06796439-95a7-4aea-910e-927c1f24518e.png)
 
-## Thanks to
+## Credits
 
-- [You, it's you!](https://github.com/<username>)
+- Based off of [rose-pine/linux-tty](https://github.com/rose-pine/linux-tty)
 
 ## Contributing
 
