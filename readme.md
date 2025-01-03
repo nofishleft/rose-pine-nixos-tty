@@ -52,7 +52,7 @@ config.rose-pine-nixos-tty.variant = "rose-pine";
 # configuration.nix
 { config, inputs, ... }: {
     imports = [
-        inputs.rose-pine-nixos-tty
+        inputs.rose-pine-nixos-tty.nixosModules.default
     ];
 
     ...
