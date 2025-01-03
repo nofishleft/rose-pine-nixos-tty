@@ -1,5 +1,5 @@
 {
-    description = "A very basic flake";
+    description = "Soho vibes for NixOS TTY";
 
     inputs = {
         nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
