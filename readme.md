@@ -13,26 +13,16 @@
 
 ## Usage
 
-### Nix
+Can be installed with or with flakes
 
 1. Import
-```nix
-import (fetchTarball "https://github.com/nofishleft/rose-pine-nixos-tty/archive/<ref>.tar.gz")
-```
-2. Enable
-```nix
-config.rose-pine-nixos-tty.enable = true;
-```
-3. *(Optional)* Select variant, defaults to `rose-pine`
+   * [With flakes](#import-with-flakes)
+   * [Without flakes](#import-without-flakess)
+2. Configure [Configure](#configure)
 
-```nix
-# One of ["rose-pine", "rose-pine-moon", "rose-pine-dawn"]
-config.rose-pine-nixos-tty.variant = "rose-pine";
-```
+### Import with Flakes
 
-### Nix with Flakes
-
-1. Declare input
+1. Add this repo your `flake.nix`
 ```nix
 # flake.nix
 {
@@ -47,18 +37,57 @@ config.rose-pine-nixos-tty.variant = "rose-pine";
     outputs = { ... };
 }
 ```
-2. Import in the file that you are configuring from
+
+2. Import into a module that is used by your flake
 ```nix
 # configuration.nix
-{ config, inputs, ... }: {
+{ inputs, ... }: {
     imports = [
         inputs.rose-pine-nixos-tty.nixosModules.default
     ];
 
+    # Rest of your module
+    outputs = { ... }
+}
+```
+
+### Import without Flakess
+
+1. Get permalink to current commit, replacing `<COMMIT>` with the current commit
+```
+https://github.com/nofishleft/rose-pine-nixos-tty/archive/<COMMIT>.tar.gz
+```
+
+2. Get hash for archive, replacing `<ARCHIVE_URL>` with the previous url
+```sh
+nix-prefetch-url --type sha256 --unpack <ARCHIVE_URL>
+```
+
+3. Modify your nix configuration with the following, replacing `<ARCHIVE_URL>` and `<HASH>`:
+```nix
+# configuration.nix
+{ inputs, ...}:
+let
+    rose-pine-nixos-tty = fetchTarball {
+        url = "<ARCHIVE_URL>"
+        sha256 = "<HASH>";
+    };
+in
+{
+    imports = [
+        (import rose-pine-nixos-tty inputs)
+        # Rest of your imports
+        ...
+    ];
+
+    # Rest of your configuration
     ...
 }
 ```
-3. Enable
+
+### Configure
+
+1. Enable
 ```nix
 # configuration.nix
 { config, inputs, ... }: {
@@ -67,7 +96,7 @@ config.rose-pine-nixos-tty.variant = "rose-pine";
     config.rose-pine-nixos-tty.enable = true;
 }
 ```
-4. *(Optional)* Select variant, defaults to `rose-pine`
+2. *(Optional)* Select variant, defaults to `rose-pine`
 ```nix
 # configuration.nix
 { config, inputs, ... }: {
