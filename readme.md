@@ -69,7 +69,7 @@ nix-prefetch-url --type sha256 --unpack <ARCHIVE_URL>
 { inputs, ...}:
 let
     rose-pine-nixos-tty = fetchTarball {
-        url = "<ARCHIVE_URL>"
+        url = "<ARCHIVE_URL>";
         sha256 = "<HASH>";
     };
 in
