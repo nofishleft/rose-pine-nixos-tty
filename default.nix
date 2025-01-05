@@ -20,9 +20,9 @@ inputs: { config, lib, ... }:
     };
 
     imports = [
-        ./dist/rose-pine.nix
-        ./dist/rose-pine-moon.nix
-        ./dist/rose-pine-dawn.nix
+        ./variants/rose-pine.nix
+        ./variants/rose-pine-moon.nix
+        ./variants/rose-pine-dawn.nix
     ];
 
     config = lib.mkIf config.rose-pine-nixos-tty.enable {
